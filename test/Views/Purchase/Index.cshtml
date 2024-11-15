@@ -1,0 +1,38 @@
+﻿@model List<Item>
+
+<h2>Purchase Items</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Main Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.mainitem?.Nmae</td>
+                <td>@item.price</td>
+                <td>@item.quanity</td>
+                <td>
+                    <form asp-action="AddToCart" method="post">
+                        <input type="hidden" name="itemId" value="@item.Id" />
+                        <input type="number" name="quantity" min="1" max="@item.quanity" required />
+                        <button type="submit">Buy</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+

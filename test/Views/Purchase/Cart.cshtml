@@ -1,0 +1,36 @@
+﻿@model CartItem
+
+<h2>Your Cart</h2>
+@if (Model.carts.Any())
+{
+    <form asp-action="UpdateCart" method="post">
+        <ul>
+            @foreach (var item in Model.carts)
+            {
+                <li>
+                    <div>
+                        @item.ItemName - Price: @item.Price $
+                        <label for="quantity-@item.ItemId">Quantity:</label>
+                        <input type="number" name="quantities[@item.ItemId]" id="quantity-@item.ItemId"
+                               value="@item.Quantity" min="1" max="100" required />
+                        <button type="submit" name="remove" value="@item.ItemId">Remove</button>
+                    </div>
+                </li>
+            }
+            
+        </ul>
+        <button type="submit">Update Cart</button>
+    </form>
+
+    <form asp-action="Checkout" method="post">
+        <div class="form-control">
+            <label asp-for=DicCount  >%</label>
+            <input asp-for=DicCount type="number" class="form-control" name="DicCount" value="@Model.DicCount" />
+        </div>
+        <button type="submit">Proceed to Checkout</button>
+    </form>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}

@@ -1,0 +1,50 @@
+﻿@model test.ViewModel.ItemVm
+
+@{
+    ViewData["Title"] = "addItem";
+}
+
+<h1>addItem</h1>
+
+<h4>ItemVm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="addItem1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idmain" class="control-label"></label>
+                <input asp-for="idmain" class="form-control" />
+                <span asp-validation-for="idmain" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quanity" class="control-label"></label>
+                <input asp-for="quanity" class="form-control" />
+                <span asp-validation-for="quanity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
